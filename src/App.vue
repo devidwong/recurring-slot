@@ -4,9 +4,12 @@
       v-for="comment in comments"
       :key="comment.id"
       :comment="comment"
+      :detailsComponent="CommentDetails"
     >
-      <template #default="{ currentComment }">
-        <div>by {{ currentComment.author }}</div>
+      <template #details="{ currentComment }">
+        <CommentDetails
+            :currentComment="currentComment"
+        />
       </template>
     </Comment>
   </div>
@@ -14,8 +17,14 @@
 
 <script>
 import Comment from "@/Comment";
+import CommentDetails from "@/CommentDetails";
 export default {
+  components: {
+    Comment,
+    CommentDetails
+  },
   data: () => ({
+    CommentDetails,
     comments: [
       {
         id: 1,
@@ -41,9 +50,6 @@ export default {
         ]
       }
     ]
-  }),
-  components: {
-    Comment
-  }
+  })
 }
 </script>
