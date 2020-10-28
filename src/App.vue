@@ -1,28 +1,49 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <Comment
+      v-for="comment in comments"
+      :key="comment.id"
+      :comment="comment"
+    >
+      <template #default="{ currentComment }">
+        <div>by {{ currentComment.author }}</div>
+      </template>
+    </Comment>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import Comment from "@/Comment";
 export default {
-  name: 'App',
+  data: () => ({
+    comments: [
+      {
+        id: 1,
+        author: 'Goodman',
+        replies: [
+          {
+            id: 11,
+            author: 'RepeatingMan',
+            replies: [
+              {
+                id: 111,
+                author: 'ExpectedMan',
+                replies: [
+                  {
+                    id: 1111,
+                    author: 'MelodyOfFuture',
+                    replies: []
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }),
   components: {
-    HelloWorld
+    Comment
   }
 }
 </script>
-
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
