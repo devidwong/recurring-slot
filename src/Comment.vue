@@ -7,7 +7,6 @@
         :comment="reply"
         :detailsComponent="detailsComponent"
     >
-      <slot :currentComment="reply" />
       <template #details="{ currentComment }">
         <component
             :is="detailsComponent"
