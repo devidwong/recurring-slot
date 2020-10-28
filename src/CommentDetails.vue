@@ -6,7 +6,6 @@
 
 <script>
 export default {
-  name: "CommentDetails",
   props: {
     currentComment: Object
   }

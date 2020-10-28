@@ -5,13 +5,7 @@
       :key="comment.id"
       :comment="comment"
       :detailsComponent="CommentDetails"
-    >
-      <template #details="{ currentComment }">
-        <CommentDetails
-            :currentComment="currentComment"
-        />
-      </template>
-    </Comment>
+    />
   </div>
 </template>
 
@@ -21,7 +15,7 @@ import CommentDetails from "@/CommentDetails";
 export default {
   components: {
     Comment,
-    CommentDetails
+    // CommentDetails
   },
   data: () => ({
     CommentDetails,
